@@ -58,11 +58,11 @@ class Peikko:
 
 
 class Sankari:
-    
-    def __init__(self, nimi, rohkeus=90, katseen_voima=100):
+
+    def __init__(self, nimi):
         self.nimi = nimi
-        self.rohkeus = rohkeus
-        self.katseen_voima = katseen_voima
+        self.rohkeus = random.randint(50,100)
+        self.katseen_voima = random.randint(50,100)
 
     def arvo_hurraus(self):
         merkkijono = ["Koripallo", "Lentopallo", "Jalkapallo", "Golf", "Biljardi"]
