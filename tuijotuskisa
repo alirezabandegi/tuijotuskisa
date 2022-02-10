@@ -78,15 +78,14 @@ class Sankari(Olento):
         arvo_hurraus()
     """
 
-    RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
     def __init__(self, nimi, rohkeus=4, katseen_voima=2):
         self.nimi = nimi
         super().__init__(rohkeus, katseen_voima)
 
     def arvo_hurraus():
-        merkkijono = ["Koripallo", "Lentopallo", "Jalkapallo", "Golf", "Biljardi"]
-        return random.choice(merkkijono)
+        RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
+        return random.choices(RIEMUTAVUT, k = 3)
 
 
 
