@@ -98,10 +98,12 @@ class Sankari(Olento):
 
 
 class Vuorenpeikko(Peikko):
+
+    NIMITAVUT = ("Kazah", "Bar", "Bazh", "Ragh", "Rudz")
+    RIEMUTAVUT = ("Agh", "Ugh", "Ourgh")
     
     def __init__(self):
-        self.rohkeus = random.randint(3, 6)
-        self.katseen_voima = random.randint(1, 4)
+        super().__init__()
 
 
 class Luolapeikko(Peikko):
@@ -210,7 +212,7 @@ while sankari.rohkeus > 0:
     time.sleep(0.7)
 
     # Tulostetaan vastaan tulevan peikon tiedot.
-    peikko = Peikko()
+    peikko = Vuorenpeikko()
     peikon_tiedot = peikko.nimi + " [" + str(peikko.rohkeus) + "]"
     print(f"Vastaan tulee hurja {peikon_tiedot}!")
     time.sleep(1)
