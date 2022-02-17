@@ -3,9 +3,18 @@ import time
 
 class Olento:
 
-    def __init__(self, rohkeus, katseen_voima):
-        self.rohkeus = random.randint(4, 12)
-        self.katseen_voima = random.randint(2, 20)
+    def __init__(self,nimi , min_rohkeus=1, min_voima=1):
+        self.nimi = nimi
+        self.rohkeus = random.randint(min_rohkeus, min_rohkeus + 4)
+        self.katseen_voima = random.randint(min_voima, min_voima + 3)
+    
+    def arvo_hurraus(self):
+       """Palauttaa satunnaisen hurraushuudahduksen.
+
+       :return: hurraava huudahdus
+       :rtype: str
+       """
+       pass
 
 
 class Peikko(Olento):
@@ -27,8 +36,8 @@ class Peikko(Olento):
 
     def __init__(self, rohkeus=4, katseen_voima=2):
         """Konstruktori."""
-        self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
-        super().__init__(rohkeus, katseen_voima)
+        nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
+        super().__init__(nimi ,4, 3)
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
         """Muodostaa satunnaisen tekstin annetuista tavuista.
@@ -77,15 +86,14 @@ class Sankari(Olento):
     Julkiset metodit
         arvo_hurraus()
     """
-
+    
+    RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
     def __init__(self, nimi, rohkeus=4, katseen_voima=2):
-        self.nimi = nimi
-        super().__init__(rohkeus, katseen_voima)
+        super().__init__(nimi ,4, 3)
 
     def arvo_hurraus():
-        RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
-        return random.choices(RIEMUTAVUT, k = 3)
+        return random.choices(self.RIEMUTAVUT)
 
 
 
